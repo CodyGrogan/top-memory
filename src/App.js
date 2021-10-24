@@ -68,8 +68,9 @@ function App() {
       }
       else
       {
-        setHighScore(cardsClicked);
-        
+        if (cardsClicked > highScore){
+          setHighScore(cardsClicked);
+          }
         setGameOver(false);
         setCardClickEvent(false)
       
