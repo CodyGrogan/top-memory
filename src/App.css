@@ -1,14 +1,14 @@
 .flag{
   
-  width: 180px;
+  width: 150px;
   max-height: auto;
 }
 
 .flagCard{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   outline: black 2px;
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 170px;
   margin: 10px;
   background-color: whitesmoke;
 
