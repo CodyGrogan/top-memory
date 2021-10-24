@@ -8,11 +8,16 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   outline: black 2px;
   width: 200px;
+  height: 200px;
   margin: 10px;
+  background-color: whitesmoke;
 
 }
 .cardContainer{
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
+}
+body{
+  background-color: lightslategrey;
 }

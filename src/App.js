@@ -3,8 +3,21 @@ import './App.css';
 import uniqid from 'uniqid';
 import usflag from './images/usflag.png'
 import canflag from './images/canada.png'
+import taiwan from './images/taiwan.png';
+import ukflag from './images/ukflag.png';
+import japan from './images/japan.png';
+import china from './images/china.png';
+import france from './images/france.png';
+import ireland from './images/ireland.png';
+import italy from './images/italy.png';
+import malaysia from './images/malaysia.png';
+import netherlands from './images/netherlands.png';
+import russia from './images/russia.png';
+import singapore from './images/singapore.png';
+import vietnam from './images/vietnam.png';
 import { FlagCard } from './components/FlagCard';
 import { useEffect, useState } from 'react';
+import { GameBoard } from './components/gameBoard';
 
 //this app will be a memory game, where the player has to click on different flags. Their score will increase
 //with each unique flag clicked. If the player clicks the same flag twice, they lose.
@@ -28,40 +41,97 @@ import { useEffect, useState } from 'react';
 
 function App() {
   
+  let gameInit = false;
   let [cardsClicked, setCardsClicked] = useState(0);
   let [cardClickEvent, setCardClickEvent] = useState(false);
+  let [highScore, setHighScore] = useState(0);
+  let [gameover, setGameOver] = useState(false);
   
   useEffect(()=>{
 
     if (cardClickEvent == true){
+
+      if(gameover == false){
+
       let clicknum = cardsClicked + 1;
       setCardsClicked(clicknum);
+      generateCardSet();
       setCardClickEvent(false)
+      }
+      else
+      {
+        setHighScore(cardsClicked);
+        
+        setGameOver(false);
+        setCardClickEvent(false)
+      
+        resetGame();
+        setCardsClicked(0);
+      }
     }
 
   },
-    [cardsClicked, cardClickEvent])
-  const reportClick = () =>{
-    setCardClickEvent(true);
+    [cardsClicked, cardClickEvent, highScore, gameover]);
+ 
+ 
+  const reportClick = (gameover) =>{
+
+    if (gameover == false){
+      setCardClickEvent(true);
+
+    }
+    else{
+
+      setGameOver(true);
+      setCardClickEvent(true);
+    }
 
   }
-  const cardArray = [{cardjsx : <FlagCard countryname="United States" countryflag={usflag} key={uniqid()} click ={reportClick} />}, {cardjsx : <FlagCard countryname="Canada" countryflag={canflag} key={uniqid()} click ={reportClick} />}]
+  let cardArray = [<FlagCard countryname="United States" countryflag={usflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Canada" countryflag={canflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Taiwan" countryflag={taiwan} key={uniqid()} click ={reportClick} />, <FlagCard countryname="United Kingdom" countryflag={ukflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Japan" countryflag={japan} key={uniqid()} click ={reportClick} />, <FlagCard countryname="France" countryflag={france} key={uniqid()} click ={reportClick} />, 
+  <FlagCard countryname="Russia" countryflag={russia} key={uniqid()} click ={reportClick} />, <FlagCard countryname="China" countryflag={china} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Vietnam" countryflag={vietnam} key={uniqid()} click ={reportClick} />,<FlagCard countryname="Malaysia" countryflag={malaysia} key={uniqid()} click ={reportClick} />,
+<FlagCard countryname="Singapore" countryflag={singapore} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Netherlands" countryflag={netherlands} key={uniqid()} click ={reportClick} />,
+<FlagCard countryname="Italy" countryflag={italy} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Ireland" countryflag={ireland} key={uniqid()} click ={reportClick} />]
   let [stateCardArray, setStateCardArray] = useState(cardArray);
+  
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+
+  let cardDisplay = []
   const generateCardSet = () =>{
 
-
+    cardDisplay = [];
+    cardDisplay = cardDisplay.concat(stateCardArray);
+    shuffleArray(cardDisplay);
+   
   }
 
-  
+  const resetGame = () =>{
+    let newcardArray = [<FlagCard countryname="United States" countryflag={usflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Canada" countryflag={canflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Taiwan" countryflag={taiwan} key={uniqid()} click ={reportClick} />, <FlagCard countryname="United Kingdom" countryflag={ukflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Japan" countryflag={japan} key={uniqid()} click ={reportClick} />, <FlagCard countryname="France" countryflag={france} key={uniqid()} click ={reportClick} />, 
+    <FlagCard countryname="Russia" countryflag={russia} key={uniqid()} click ={reportClick} />, <FlagCard countryname="China" countryflag={china} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Vietnam" countryflag={vietnam} key={uniqid()} click ={reportClick} />,<FlagCard countryname="Malaysia" countryflag={malaysia} key={uniqid()} click ={reportClick} />,
+  <FlagCard countryname="Singapore" countryflag={singapore} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Netherlands" countryflag={netherlands} key={uniqid()} click ={reportClick} />,
+  <FlagCard countryname="Italy" countryflag={italy} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Ireland" countryflag={ireland} key={uniqid()} click ={reportClick} />]
+    cardArray = newcardArray;
+    setStateCardArray(cardArray);
+  }
+
+  if (gameInit == false){
+      generateCardSet();
+      gameInit = true;
+      }
 
   return (
     <div className="App">
-     <p>cardsClicked {cardsClicked}</p>
+     <p>Score {cardsClicked} High Score {highScore}</p>
+     
       
-      <div className="cardContainer">
-      {stateCardArray[0].cardjsx}{stateCardArray[1].cardjsx}
-      
-      </div>
+      <GameBoard cardList={cardDisplay}/>
 
      
     </div>

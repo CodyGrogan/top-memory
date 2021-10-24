@@ -12,11 +12,13 @@ export function FlagCard(props){
         console.log("click event fired")
         
         if (clickNum == 0){
-        props.click();
+
         setClickNum(clickNum + 1);
+        props.click(false);
+        
         }
         else{
-            alert("You lose!")
+            props.click(true);
         }
     };
 
