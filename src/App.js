@@ -15,6 +15,14 @@ import netherlands from './images/netherlands.png';
 import russia from './images/russia.png';
 import singapore from './images/singapore.png';
 import vietnam from './images/vietnam.png';
+import australia from './images/australia.png';
+import hongkong from './images/hongkong.png';
+import macau from './images/macau.png';
+import mexico from './images/mexico.png';
+import germany from './images/germany.png';
+import korea from './images/korea.png';
+import brazil from './images/brazil.png';
+import newzealand from './images/newzealand.png';
 import { FlagCard } from './components/FlagCard';
 import { useEffect, useState } from 'react';
 import { GameBoard } from './components/gameBoard';
@@ -90,7 +98,11 @@ function App() {
   let cardArray = [<FlagCard countryname="United States" countryflag={usflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Canada" countryflag={canflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Taiwan" countryflag={taiwan} key={uniqid()} click ={reportClick} />, <FlagCard countryname="United Kingdom" countryflag={ukflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Japan" countryflag={japan} key={uniqid()} click ={reportClick} />, <FlagCard countryname="France" countryflag={france} key={uniqid()} click ={reportClick} />, 
   <FlagCard countryname="Russia" countryflag={russia} key={uniqid()} click ={reportClick} />, <FlagCard countryname="China" countryflag={china} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Vietnam" countryflag={vietnam} key={uniqid()} click ={reportClick} />,<FlagCard countryname="Malaysia" countryflag={malaysia} key={uniqid()} click ={reportClick} />,
 <FlagCard countryname="Singapore" countryflag={singapore} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Netherlands" countryflag={netherlands} key={uniqid()} click ={reportClick} />,
-<FlagCard countryname="Italy" countryflag={italy} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Ireland" countryflag={ireland} key={uniqid()} click ={reportClick} />]
+<FlagCard countryname="Italy" countryflag={italy} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Ireland" countryflag={ireland} key={uniqid()} click ={reportClick} />,
+<FlagCard countryname="Australia" countryflag={australia} key={uniqid()} click ={reportClick} />, <FlagCard countryname="New Zealand" countryflag={newzealand} key={uniqid()} click ={reportClick} />,
+<FlagCard countryname="South Korea" countryflag={korea} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Germany" countryflag={germany} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Mexico" countryflag={mexico} key={uniqid()} click ={reportClick} />,
+<FlagCard countryname="Hong Kong" countryflag={hongkong} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Macau" countryflag={macau} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Brazil" countryflag={brazil} key={uniqid()} click ={reportClick} />
+]
   let [stateCardArray, setStateCardArray] = useState(cardArray);
   
   function shuffleArray(array) {
@@ -116,8 +128,12 @@ function App() {
     let newcardArray = [<FlagCard countryname="United States" countryflag={usflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Canada" countryflag={canflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Taiwan" countryflag={taiwan} key={uniqid()} click ={reportClick} />, <FlagCard countryname="United Kingdom" countryflag={ukflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Japan" countryflag={japan} key={uniqid()} click ={reportClick} />, <FlagCard countryname="France" countryflag={france} key={uniqid()} click ={reportClick} />, 
     <FlagCard countryname="Russia" countryflag={russia} key={uniqid()} click ={reportClick} />, <FlagCard countryname="China" countryflag={china} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Vietnam" countryflag={vietnam} key={uniqid()} click ={reportClick} />,<FlagCard countryname="Malaysia" countryflag={malaysia} key={uniqid()} click ={reportClick} />,
   <FlagCard countryname="Singapore" countryflag={singapore} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Netherlands" countryflag={netherlands} key={uniqid()} click ={reportClick} />,
-  <FlagCard countryname="Italy" countryflag={italy} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Ireland" countryflag={ireland} key={uniqid()} click ={reportClick} />]
-    cardArray = newcardArray;
+  <FlagCard countryname="Italy" countryflag={italy} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Ireland" countryflag={ireland} key={uniqid()} click ={reportClick} />,
+  <FlagCard countryname="Australia" countryflag={australia} key={uniqid()} click ={reportClick} />, <FlagCard countryname="New Zealand" countryflag={newzealand} key={uniqid()} click ={reportClick} />,
+  <FlagCard countryname="South Korea" countryflag={korea} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Germany" countryflag={germany} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Mexico" countryflag={mexico} key={uniqid()} click ={reportClick} />,
+  <FlagCard countryname="Hong Kong" countryflag={hongkong} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Macau" countryflag={macau} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Brazil" countryflag={brazil} key={uniqid()} click ={reportClick} />
+  ];
+  cardArray = newcardArray;
     setStateCardArray(cardArray);
   }
 
