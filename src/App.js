@@ -91,6 +91,7 @@ function App() {
     }
     else{
 
+      alert("Game Over, Try Again!");
       setGameOver(true);
       setCardClickEvent(true);
     }
@@ -126,6 +127,7 @@ function App() {
   }
 
   const resetGame = () =>{
+    
     let newcardArray = [<FlagCard countryname="United States" countryflag={usflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Canada" countryflag={canflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Taiwan" countryflag={taiwan} key={uniqid()} click ={reportClick} />, <FlagCard countryname="United Kingdom" countryflag={ukflag} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Japan" countryflag={japan} key={uniqid()} click ={reportClick} />, <FlagCard countryname="France" countryflag={france} key={uniqid()} click ={reportClick} />, 
     <FlagCard countryname="Russia" countryflag={russia} key={uniqid()} click ={reportClick} />, <FlagCard countryname="China" countryflag={china} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Vietnam" countryflag={vietnam} key={uniqid()} click ={reportClick} />,<FlagCard countryname="Malaysia" countryflag={malaysia} key={uniqid()} click ={reportClick} />,
   <FlagCard countryname="Singapore" countryflag={singapore} key={uniqid()} click ={reportClick} />, <FlagCard countryname="Netherlands" countryflag={netherlands} key={uniqid()} click ={reportClick} />,
@@ -136,6 +138,7 @@ function App() {
   ];
   cardArray = newcardArray;
     setStateCardArray(cardArray);
+    
   }
 
   if (gameInit == false){
